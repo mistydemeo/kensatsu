@@ -10,7 +10,7 @@ dependencies = [
 [[package]]
 name = "pafe"
 version = "0.1.0"
-source = "git+https://github.com/mistydemeo/pafe.rs?branch=main#6ced7043966101c0d4cf257e716017907d8fcf07"
+source = "git+https://github.com/mistydemeo/pafe.rs?branch=main#fd06fe12586115bd1321b2d4074d7f65d2c4bda4"
 dependencies = [
  "pafe-sys",
 ]
@@ -18,4 +18,4 @@ dependencies = [
 [[package]]
 name = "pafe-sys"
 version = "0.1.0"
-source = "git+https://github.com/mistydemeo/pafe.rs?branch=main#6ced7043966101c0d4cf257e716017907d8fcf07"
+source = "git+https://github.com/mistydemeo/pafe.rs?branch=main#fd06fe12586115bd1321b2d4074d7f65d2c4bda4"

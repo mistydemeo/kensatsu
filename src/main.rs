@@ -31,7 +31,7 @@ fn read_loop(pasori: pasori::Pasori) -> Result<(), String> {
 
             // Decide if enough time has passed since the last read
             if let Some(backoff_timetamp) = hm.get(&idm) {
-                if should_back_off(*backoff_timetamp) {
+                if !should_back_off(*backoff_timetamp) {
                     continue;
                 }
             }
@@ -46,15 +46,11 @@ fn read_loop(pasori: pasori::Pasori) -> Result<(), String> {
 }
 
 fn main() {
-    let pasori = pasori::Pasori::create();
-    match pasori.init() {
-        Ok(_) => {},
-        Err(_) => {
-            eprintln!("No PaSoRi detected!");
-            exit(1);
-        },
+    if let Some(pasori) = pasori::Pasori::create() {
+        read_loop(pasori).unwrap();
+        exit(0);
+    } else {
+        eprintln!("No PaSoRi detected!");
+        exit(1);
     }
-    read_loop(pasori).unwrap();
-
-    exit(0);
 }
