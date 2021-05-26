@@ -6,6 +6,7 @@ repository = "https://github.com/mistydemeo/kensatsu"
 version = "0.1.0"
 authors = ["Misty De Meo <mistydemeo@gmail.com>"]
 edition = "2018"
+license = "GPL-2.0-only"
 
 [dependencies]
 pafe = { git = "https://github.com/mistydemeo/pafe.rs", branch = "main" }
