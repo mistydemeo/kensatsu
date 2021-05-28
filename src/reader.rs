@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-use std::process::exit;
 use std::time::Instant;
 
 use pafe::pasori;
@@ -12,7 +11,7 @@ fn should_back_off(timestamp: Instant) -> bool {
     }
 }
 
-fn read_loop(pasori: pasori::Pasori) -> Result<(), String> {
+pub fn read_loop(pasori: pasori::Pasori) -> Result<(), String> {
     let mut hm = HashMap::new();
     // Used to track when a card is lifted
     // Note that all zeroes is not a valid IDm, so we can safely
@@ -42,15 +41,5 @@ fn read_loop(pasori: pasori::Pasori) -> Result<(), String> {
             hm.insert(last_read, Instant::now());
             last_read = [0; 8];
         }
-    }
-}
-
-fn main() {
-    if let Some(pasori) = pasori::Pasori::create() {
-        read_loop(pasori).unwrap();
-        exit(0);
-    } else {
-        eprintln!("No PaSoRi detected!");
-        exit(1);
     }
 }
