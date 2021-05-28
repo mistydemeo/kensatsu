@@ -31,7 +31,7 @@ fn read_loop(pasori: pasori::Pasori) -> Result<(), String> {
 
             // Decide if enough time has passed since the last read
             if let Some(backoff_timetamp) = hm.get(&idm) {
-                if !should_back_off(*backoff_timetamp) {
+                if should_back_off(*backoff_timetamp) {
                     continue;
                 }
             }
