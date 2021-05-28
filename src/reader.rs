@@ -1,3 +1,5 @@
+use crate::emitter::Emitter;
+
 use std::collections::HashMap;
 use std::time::Instant;
 
@@ -11,7 +13,7 @@ fn should_back_off(timestamp: Instant) -> bool {
     }
 }
 
-pub fn read_loop(pasori: pasori::Pasori) -> Result<(), String> {
+pub fn read_loop(pasori: pasori::Pasori, emitter: &mut dyn Emitter) -> Result<(), std::io::Error> {
     let mut hm = HashMap::new();
     // Used to track when a card is lifted
     // Note that all zeroes is not a valid IDm, so we can safely
@@ -35,6 +37,7 @@ pub fn read_loop(pasori: pasori::Pasori) -> Result<(), String> {
                 }
             }
             println!("Scanned card {:02x?}", idm);
+            emitter.emit(1)?;
 
             last_read = idm;
         } else {
