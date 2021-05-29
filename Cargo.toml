@@ -9,4 +9,4 @@ edition = "2018"
 license = "GPL-2.0-only"
 
 [dependencies]
-pafe = { git = "https://github.com/mistydemeo/pafe.rs", branch = "main" }
+pafe = "0.1.0"

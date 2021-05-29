@@ -10,7 +10,8 @@ dependencies = [
 [[package]]
 name = "pafe"
 version = "0.1.0"
-source = "git+https://github.com/mistydemeo/pafe.rs?branch=main#fd06fe12586115bd1321b2d4074d7f65d2c4bda4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f2e35fdfa39f27d1fe6c3fc5d8c9f400695d505deb4fc77db3354a8bbe431fce"
 dependencies = [
  "pafe-sys",
 ]
@@ -18,4 +19,5 @@ dependencies = [
 [[package]]
 name = "pafe-sys"
 version = "0.1.0"
-source = "git+https://github.com/mistydemeo/pafe.rs?branch=main#fd06fe12586115bd1321b2d4074d7f65d2c4bda4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8785c6aa897cddffa2287a97e4f2db67becddebfcd0de13b9858fc2e659901c3"
