@@ -1,4 +1,7 @@
+#[cfg(not(target_os = "linux"))]
 use kensatsu::emitter::IOEmitter;
+#[cfg(target_os = "linux")]
+use kensatsu::evdev::Device;
 #[cfg(target_os = "linux")]
 use kensatsu::emitter::EVDevEmitter;
 use kensatsu::reader::read_loop;
