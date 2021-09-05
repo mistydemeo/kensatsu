@@ -1,3 +1,4 @@
+pub mod config;
 pub mod emitter;
 #[cfg(any(target_os = "linux"))]
 pub mod evdev;
