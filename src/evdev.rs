@@ -13,12 +13,19 @@ impl Device {
     pub fn create() -> Result<Device, io::Error> {
         let device = match evdev_rs::UninitDevice::new() {
             Some(d) => d,
-            None => return Err(io::Error::new(io::ErrorKind::InvalidData, "Unable to initialize an empty device")),
+            None => {
+                return Err(io::Error::new(
+                    io::ErrorKind::InvalidData,
+                    "Unable to initialize an empty device",
+                ))
+            }
         };
         // TODO: Un-hardcode this later.
         device.set_name("Sony Corp. FeliCa S320 [PaSoRi]");
         device.enable(&evdev_rs::enums::EventType::EV_MSC)?;
-        device.enable(&evdev_rs::enums::EventCode::EV_MSC(evdev_rs::enums::EV_MSC::MSC_RAW))?;
+        device.enable(&evdev_rs::enums::EventCode::EV_MSC(
+            evdev_rs::enums::EV_MSC::MSC_RAW,
+        ))?;
 
         let udevice = evdev_rs::uinput::UInputDevice::create_from_device(&device)?;
 
