@@ -12,7 +12,7 @@ pub struct IOEmitter<'a> {
 impl Emitter for IOEmitter<'_> {
     fn emit(&mut self, value: i32) -> Result<(), std::io::Error> {
         let message = format!("Emitting value: {}\n", value);
-        self.target.write(&message.as_bytes())?;
+        self.target.write_all(message.as_bytes())?;
 
         Ok(())
     }

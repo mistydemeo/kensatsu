@@ -22,7 +22,7 @@ impl Device {
 
         let udevice = evdev_rs::uinput::UInputDevice::create_from_device(&device)?;
 
-        return Ok(Device { udevice });
+        Ok(Device { udevice })
     }
 
     pub fn write(&self, value: i32) -> Result<(), io::Error> {
@@ -33,7 +33,7 @@ impl Device {
         let event = evdev_rs::InputEvent {
             time: null,
             event_code: evdev_rs::enums::EventCode::EV_MSC(evdev_rs::enums::EV_MSC::MSC_RAW),
-            value: value,
+            value,
         };
         self.udevice.write_event(&event)?;
 

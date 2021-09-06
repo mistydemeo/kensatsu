@@ -6,11 +6,7 @@ use std::time::Instant;
 use pafe::pasori;
 
 fn should_back_off(timestamp: Instant) -> bool {
-    if Instant::now().duration_since(timestamp).as_secs() >= 1 {
-        false
-    } else {
-        true
-    }
+    Instant::now().duration_since(timestamp).as_secs() < 1
 }
 
 pub fn read_loop(pasori: pasori::Pasori, emitter: &mut dyn Emitter) -> Result<(), std::io::Error> {
