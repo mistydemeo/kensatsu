@@ -67,3 +67,6 @@ A: The official libpafe repository doesn't support the S380 model yet. You'll ne
 
 Q: Will this actually take money off my card?<br>
 A: No. This works purely on the honour system. Kensatsu won't even read how much money is on your card, and it's not capable of removing money from your card.
+
+Q: OpenJVS sees my PaSoRi as an S320, but I'm using a different model.<br>
+A: Right now, Kensatsu will always report itself as an S320. In a future update I'll fix this so that it reports the correct model.
