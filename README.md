@@ -1,5 +1,7 @@
 # README 🎫
 
+![example workflow](https://github.com/mistydemeo/kensatsu/actions/workflows/quickstart.yaml/badge.svg)
+
 Kensatsu is a tool that allows mapping IC card inputs to input events.
 
 ## But why?
